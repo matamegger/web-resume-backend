@@ -1,0 +1,4 @@
+[submodule "web-resume-editor"]
+	path = web-resume-editor
+	url = https://github.com/matamegger/web-resume-editor.git
+	ignore = dirty

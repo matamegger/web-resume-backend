@@ -1,0 +1,20 @@
+version: '2'
+services:
+  db:
+    container_name: webres-database
+    build: services/database/.
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3306:3306"
+  web:
+    container_name: webres-node
+    build: services/server/.
+    depends_on:
+      - db
+    volumes:
+      - ../server/:/var/www/server/
+      - ../web-resume-editor/:/var/www/public/
+    tty: true
+    ports: 
+      - "8082:8000"
